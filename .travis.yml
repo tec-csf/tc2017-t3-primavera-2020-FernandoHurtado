@@ -1,0 +1,5 @@
+compiler: gcc
+language: cpp
+
+script:
+  - g++ Sources/Gato.cpp -std=c++17
