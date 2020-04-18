@@ -66,7 +66,7 @@ int evaluartablero(char b[3][3])
 	return 0; 
 } 
 
-int minimax(char tablero[3][3], int depth, bool Max) 
+int minimax(char tablero[3][3], int depth, bool isMax) 
 { 
 	int score = evaluartablero(tablero);
 	if (depth == 4)
