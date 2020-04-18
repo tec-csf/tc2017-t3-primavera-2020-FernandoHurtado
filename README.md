@@ -1,13 +1,8 @@
-# Tarea *[Poner aquí el número de la tarea]*. *[Poner aquí el título de la tarea]*
+# Tarea 3. Técnicas de diseño de algoritmos
 
 ---
 
-##### Integrantes:
-1. *[Poner aquí Nombre y Apellidos del integrante 1]* - *[Poner aquí su Matrícula]* - *[Poner aquí su campus]*
-2. *[Poner aquí Nombre y Apellidos del integrante 2]* - *[Poner aquí su Matrícula]* - *[Poner aquí su campus]*
-3. *[Poner aquí Nombre y Apellidos del integrante 3]* - *[Poner aquí su Matrícula]* - *[Poner aquí su campus]*
-4. *[Poner aquí Nombre y Apellidos del integrante 4]* - *[Poner aquí su Matrícula]* - *[Poner aquí su campus]*
-5. *[Poner aquí Nombre y Apellidos del integrante 5]* - *[Poner aquí su Matrícula]* - *[Poner aquí su campus]*
+*Fernando Hurtado Chaurand* - *A01026025* - *Campus Santa Fe*
 
 ---
 ## 1. Aspectos generales
@@ -40,12 +35,40 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 ## 2. Solución
 
-*[Incluya aquí una explicación de la solución implementada]*
+### 2.1 Gato
+Gato es un juego con dos jugadores, X y O, que toman turnos marcando los espacios en una cuadricula 3x3. El jugador que logra colocar tres de sus marcadores en horizontal, vertical, o diagonal es el ganador. 
 
-### 2.1 Pasos a seguir para utilizar la aplicación
+Para ago la solucion optima es usar backtracking. Especificamente, encontre que el tipo de algoritmo backtracking mas efectivo para este tipo de juego es MinMax. MinMax es un tipo de algoritmo backtracking que involucra una prediccion de los movimientos posibles en un juego de turnos para encontrar el mejor resultado para el jugador.
 
-*[Incluya aquí una guía paso a paso para poder utilizar la aplicación, desde la clonación del repositorio, la compilación del código hasta la ejecución de los ejemplos para visualizar los resultados.]*
+La implementacion es relativamente simple, en pseudocodigo:
+```
+funcion minmax(posicion, profundidad, max)
+	limite de profundidad = 4
+	if la profundidad es igual al limite de profundidad
+		regresar evaluacion de la posicion
+	
+	if max
+		evaluacionmax = -1000
+		por cada hijo de posicion:
+			evaluacion = minmax (hijo, profundidad + 1, falso)
+			maxevaluacion = max(maxevaluacion, evaluacion)
+		regresar maxevaluacion
 
+	else
+		evaluacionmin = -1000
+		por cada hijo de posicion:
+			evaluacion = minmax (hijo, profundidad + 1, falso)
+			minevaluacion = min(maxevaluacion, evaluacion)
+		regresar minevaluacion
+
+```
+estoy limitando la profundidad a 4.
+la complejidad en el peor de los casos es n, ya que la recursividad tiene una condicion de parar y cada nivel de recursion baja geometricamente a las condiciones de parar. 
+	
+ 
 ## 3. Referencias
 
-*[Incluya aquí las referencias a sitios de interés y cualquier otra información que haya utilizado para realizar la actividad y que le puedan ser de utilidad a otras personas que quieran usarlo como referencia]*
+1. https://www.geeksforgeeks.org/implementation-of-tic-tac-toe-game/
+2. https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
+
+
